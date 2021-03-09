@@ -1,0 +1,77 @@
+.header-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header {
+  border: solid black 1px;
+  width: 100%;
+  text-align: center;
+}
+
+.content-container {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+.task-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: solid red 1px;
+  width: 40%;
+  height: 550px;
+  margin: 4em;
+  margin-left: 8em;
+}
+
+.task-card-front {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  text-align: center;
+  background-color: orange;
+}
+
+.schedule-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  border: solid black 1px;
+  width: 20%;
+  height: 500px;
+  margin: 4em;
+}
+
+.event-container {
+  border: solid black 1px;
+  width: 95%;
+  height: 475px;
+}
+
+.event-card {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  margin: 1em;
+  border: solid red 1px;
+  padding: 0.5em;
+  margin: 0;
+  width: stretch;
+}
+
+.event-card-text {
+  text-align: center;
+}
+
+.event-card-goal {
+  font-size: 28px;
+}
+

@@ -11,13 +11,15 @@ export default function EventCard({id, name, goal, notes, deleteEvent, setIsTime
     return (
         <div className="event-card">
             <div className="event-card-text">
-                <p>{name}</p>
+                <h3>{name}</h3>
                 <p>{notes}</p>
+            </div>
+            <div className="event-card-buttons">
+                <button onClick={() => launchEvent()}>Launch Timer</button>
                 <button onClick={handleClick}>X</button>
             </div>
             <div className="event-card-goal">
-                <p>{goal}</p>
-                <button onClick={() => launchEvent()}>Launch Timer</button>
+                <p>{goal} Minutes</p>
             </div>
         </div>
     )

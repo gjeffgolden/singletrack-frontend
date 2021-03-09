@@ -1,10 +1,11 @@
 import React from 'react'
+import Logo from '../assets/Singletrack.png'
 
 export default function Header() {
     return (
         <div className="header-container">
             <div className="header">
-                <h1>Header Placeholder</h1>
+                <img src={Logo} />
             </div>
         </div>
     )

@@ -21,7 +21,7 @@ export default function CreateEventForm({closeForm, selectedTask, tasks}) {
 
 
     return (
-        <>
+        <div className="form-container">
             <h2>{selectedTask}</h2>
             <form className="create-event-form" onSubmit={() => createEvent()}>
                 <label>Notes:</label>
@@ -31,6 +31,6 @@ export default function CreateEventForm({closeForm, selectedTask, tasks}) {
                 <input type="submit" value="Add to Daily Goals"/>
             </form>
             <button onClick={() => closeForm()}>See Tasks</button>
-        </>
+        </div>
     )
 }

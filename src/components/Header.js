@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <div className="header-container">
             <div className="header">
-                <img src={Logo} />
+                <img src={Logo} alt="Singletrack Logo" />
             </div>
         </div>
     )

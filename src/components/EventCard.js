@@ -16,7 +16,7 @@ export default function EventCard({id, name, goal, notes, deleteEvent, setIsTime
             </div>
             <div className="event-card-buttons">
                 <button onClick={() => launchEvent()}>Launch Timer</button>
-                <button onClick={handleClick}>X</button>
+                <button onClick={handleClick}>Delete Task</button>
             </div>
             <div className="event-card-goal">
                 <p>{goal} Minutes</p>

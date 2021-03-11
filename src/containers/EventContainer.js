@@ -2,7 +2,7 @@ import React from 'react'
 import EventCard from '../components/EventCard'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export default function EventContainer({events, setEvents, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd}) {
+export default function EventContainer({events, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd}) {
 
     const displayEvents = () => {
         return events.map((event, index) => {
@@ -43,8 +43,8 @@ export default function EventContainer({events, setEvents, deleteEvent, selectEv
                 {(provided) => (
                     <ul className="event-container" {...provided.droppableProps} ref={provided.innerRef}>
                         {events.length > 0
-                            ? <h4>Hours Budgeted Today: {totalTime()}</h4>
-                            : <h4>Hours Budgeted Today: 0</h4>
+                            ? <h4>Today's Schedule: {totalTime()} Hours</h4>
+                            : <h4>Your schedule is empty.</h4>
                         }
                         {displayEvents()}
                         {provided.placeholder}

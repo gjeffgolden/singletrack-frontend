@@ -38,6 +38,7 @@ function App() {
   }
 
   const handleOnDragEnd = (result) => {
+    if (!result.destination) return;
     const [reorderedEvent] = events.splice(result.source.index, 1)
     events.splice(result.destination.index, 0, reorderedEvent)
     setEvents(events)

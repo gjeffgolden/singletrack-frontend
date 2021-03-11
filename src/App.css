@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@600&family=Playfair+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 body {
   background: rgb(10,15,8);
@@ -31,7 +32,7 @@ body {
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
-  height: 500px;
+  height: fit-content;
 }
 
 .form-container > h2 {
@@ -58,6 +59,11 @@ body {
   width: 300px;
   margin-bottom: 0.5em;
   font-family: 'Maven Pro', sans-serif;
+}
+
+.create-event-form > p {
+  padding: 0;
+  margin: 0;
 }
 
 #form-notes {
@@ -120,6 +126,7 @@ body {
 
 .task-container > h2 {
   color: white;
+  font-family: "Permanent Marker"
 }
 
 .task-card-front {
@@ -162,11 +169,10 @@ body {
 }
 
 .event-container > h4 {
-  font-family: "Maven Pro";
-  font-size: 20px;
+  font-family: "Permanent Marker";
+  font-size: 40px;
   text-align: center;
   color: white;
-  border-bottom: solid;
   border-width: 2px;
   border-color: black;
   padding-bottom: 10px;
@@ -179,12 +185,10 @@ body {
   display: flex;
   flex-flow: row;
   justify-content: space-around;
-  margin: 1em;
   padding: 0.5em;
   margin: 0;
   width: stretch;
   height: 70px;
-  border-bottom: solid 2px;
 }
 
 .event-card-text {
@@ -246,15 +250,17 @@ body {
 
 .timer-container {
   display: flex;
-  flex-flow: column;
+  flex-flow: row;
   justify-content: center;
-  height: 800px;
+  height: fit-content;
   width: 100%;
-  align-items: center;
+  align-items: top;
+  margin-top: 50px;
 }
 
 .timer {
-  font-size: 60px;
+  font-size: 80px;
+  font-weight: 800;
 }
 
 .timer-elements {
@@ -264,9 +270,10 @@ body {
   justify-content: center;
   color: white;
   height: 300px;
-  width: 500px;
+  width: 400px;
   background: rgba(0, 0, 0, 0.5);
-  margin-top: 50px;
+  margin-left: 50px;
+  margin-top: 40px;
   border-radius: 6px;
 }
 

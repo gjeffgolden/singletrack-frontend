@@ -14,7 +14,7 @@ export default function Timer({ setIsTimerActive, currentEvent }) {
                     duration={currentEvent.goal * 60}
                     size={400}
                     colors={[
-                        ['#5B628F']
+                        ['#3e2a14']
                     ]}
                 >
                 {({ remainingTime }) => {
@@ -37,25 +37,21 @@ export default function Timer({ setIsTimerActive, currentEvent }) {
                         color="dark"
                         onClick={() => setPause(pause => !pause)}
                         width="200px"
-                        style={{fontFamily: 'Maven Pro'}}
-                        shadow={true}
+                        style={{fontFamily: 'Maven Pro', backgroundColor: '#007939'}}
                     />
                     : <ReactiveButton
                         idleText="RESUME"
-                        color="dark"
                         width="200px"
                         onClick={() => setPause(pause => !pause)}
-                        style={{fontFamily: 'Maven Pro'}}
+                        style={{fontFamily: 'Maven Pro', backgroundColor: "#007939"}}
                     />
                     
                 }
                 <ReactiveButton 
                     idleText="CLOSE" 
                     onClick={() => setIsTimerActive(false)}
-                    color="dark"
                     width="200px"
-                    shadow={true}
-                    style={{marginTop: '10px', fontFamily: 'Maven Pro'}}
+                    style={{marginTop: '10px', fontFamily: 'Maven Pro', backgroundColor: "#007939"}}
                 />
             </div>
         </div>

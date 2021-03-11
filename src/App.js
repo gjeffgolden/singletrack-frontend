@@ -37,6 +37,12 @@ function App() {
     setCurrentEvent(foundEvent)
   }
 
+  const handleOnDragEnd = (result) => {
+    const [reorderedEvent] = events.splice(result.source.index, 1)
+    events.splice(result.destination.index, 0, reorderedEvent)
+    setEvents(events)
+  }
+
   return (
     <div className="App">
       <Header />
@@ -49,6 +55,8 @@ function App() {
               deleteEvent={deleteEvent} 
               currentEvent={currentEvent} 
               selectEvent={selectEvent} 
+              setEvents={setEvents}
+              handleOnDragEnd={handleOnDragEnd}
               setIsTimerActive={setIsTimerActive}
             />
           </div>

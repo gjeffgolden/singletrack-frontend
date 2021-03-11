@@ -151,7 +151,10 @@ body {
 }
 
 .event-container {
-  display: block;
+  display: flex;
+  flex-flow: column;
+  padding-left: 0;
+  list-style-type: none;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);

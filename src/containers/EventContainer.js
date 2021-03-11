@@ -1,20 +1,32 @@
 import React from 'react'
 import EventCard from '../components/EventCard'
+import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export default function EventContainer({events, deleteEvent, selectEvent, setIsTimerActive}) {
+export default function EventContainer({events, setEvents, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd}) {
 
     const displayEvents = () => {
-        return events.map(event => {
+        return events.map((event, index) => {
             return(
-                <EventCard 
-                    key={event.id} 
-                    id={event.id} 
-                    goal={event.goal} 
-                    notes={event.notes} 
-                    name={event.task.name} 
-                    deleteEvent={deleteEvent} 
-                    selectEvent={selectEvent}
-                    setIsTimerActive={setIsTimerActive} />
+                <Draggable key={event.id} draggableId={event.id.toString()} index={index}>
+                    {(provided) => (
+                        <li 
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                        >
+                            <EventCard 
+                                key={event.id}
+                                id={event.id} 
+                                goal={event.goal} 
+                                notes={event.notes} 
+                                name={event.task.name} 
+                                deleteEvent={deleteEvent} 
+                                selectEvent={selectEvent}
+                                setIsTimerActive={setIsTimerActive} 
+                            />
+                        </li>
+                    )}
+                </Draggable>
             )
         })
     }
@@ -26,12 +38,19 @@ export default function EventContainer({events, deleteEvent, selectEvent, setIsT
     }
 
     return (
-        <div className="event-container">
-            {events.length > 0
-                ? <h4>Hours Budgeted Today: {totalTime()}</h4>
-                : <h4>Hours Budgeted Today: 0</h4>
-            }
-            {displayEvents()}
-        </div>
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+            <Droppable droppableId="events">
+                {(provided) => (
+                    <ul className="event-container" {...provided.droppableProps} ref={provided.innerRef}>
+                        {events.length > 0
+                            ? <h4>Hours Budgeted Today: {totalTime()}</h4>
+                            : <h4>Hours Budgeted Today: 0</h4>
+                        }
+                        {displayEvents()}
+                        {provided.placeholder}
+                    </ul>
+                )}
+            </Droppable>
+        </DragDropContext>
     )
 }

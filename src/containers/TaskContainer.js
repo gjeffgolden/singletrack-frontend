@@ -23,6 +23,7 @@ export default function TaskContainer( {tasks, setEvents, events} ) {
 
     return (
         <div className="task-container">
+            <h2>Choose a Task</h2>
             {isTaskSelected
                 ? <CreateEventForm tasks={tasks} closeForm={closeForm} selectedTask={selectedTask} />
                 : displayTasks()

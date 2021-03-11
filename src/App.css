@@ -51,6 +51,7 @@ body {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
   color: white;
+  align-self: center;
 }
 
 .create-event-form > input {
@@ -59,17 +60,66 @@ body {
   font-family: 'Maven Pro', sans-serif;
 }
 
+#form-notes {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+#form-number {
+  width: 20%;
+  align-self: center;
+  font-size: 24px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#submit-form-button {
+  background: #007939;
+  height: 60px;
+  width: 150px;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 3px 3px 1px black;
+  align-self: center;
+  margin-top: 5px;
+}
+
+#submit-form-button:hover {
+  background: rgba(0, 140, 255, 0.3);
+}
+
+#close-form-button {
+  background: #007939;
+  font-family: "Maven Pro";
+  height: 30px;
+  width: 100px;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 3px 3px 1px black;
+  align-self: center;
+  margin-top: 5px;
+}
+
+#close-form-button:hover {
+  background: rgba(0, 140, 255, 0.3);
+}
+
 .task-container {
   display: flex;
   flex-flow: column;
   justify-content: space-evenly;
   align-items: center;
   width: 30%;
-  height: 500px;
+  height: fit-content;
   margin: 4em;
   margin-left: 8em;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
+  padding-bottom: 10px;
+}
+
+.task-container > h2 {
+  color: white;
 }
 
 .task-card-front {
@@ -83,6 +133,11 @@ body {
   color: white;
   border-radius: 6px;
   font-family: 'Maven Pro', sans-serif;
+  margin: 0.3em;
+}
+
+.task-card-front:hover {
+  background: rgba(0, 140, 255, 0.3);
 }
 
 .schedule-container {
@@ -101,6 +156,20 @@ body {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
+}
+
+.event-container > h4 {
+  font-family: "Maven Pro";
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  border-bottom: solid;
+  border-width: 2px;
+  border-color: black;
+  padding-bottom: 10px;
+  padding-top: 0;
+  margin-top: 10px;
+  margin-bottom: 0;
 }
 
 .event-card {
@@ -145,11 +214,20 @@ body {
   width: 33%;
 }
 
+.event-card-buttons > button:hover {
+  background: rgba(0, 140, 255, 0.3);
+}
+
 .event-card-buttons > button {
-  font-family: 'Maven Pro';
-  width: 50%;
+  background: #007939;
+  font-family: "Maven Pro";
+  height: 30px;
+  width: 150px;
+  color: white;
+  border-radius: 6px;
+  box-shadow: 3px 3px 1px black;
   align-self: center;
-  margin: 0.2em;
+  margin-top: 5px;
 }
 
 .event-card-goal {
@@ -167,6 +245,8 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: center;
+  height: 800px;
+  width: 100%;
   align-items: center;
 }
 
@@ -180,11 +260,17 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
+  height: 300px;
+  width: 500px;
+  background: rgba(0, 0, 0, 0.5);
+  margin-top: 50px;
+  border-radius: 6px;
 }
 
 .timer-elements > h2 {
   font-family: 'Maven Pro', sans-serif;
   font-size: 40px;
+  margin-top: 0;
 }
 
 .timer-elements > p {

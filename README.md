@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Singletrack
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A time management tool for software engineering students.
 
-## Available Scripts
+Users can select from a set of pre-seeded tasks related to the bootcamp experience, such as attending a lesson, working on a lab or project, or exploring new tech. Students can then include clarifying notes and set a time goal, which adds the task to their daily schedule. From the daily schedule, they can launch a countdown timer to keep them on the selected task.
 
-In the project directory, you can run:
+Note: This React frontend is meant to be paired with the [singletrack-backend repo](https://github.com/gjeffgolden/singletrack-backend) built in Rails.
 
-### `yarn start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. **Drag and Drop:** One of my main goals with this Flatiron School Module 4 project was to explore drag-and-drop functionality in React. Once a task is added to a user's daily schedule, the card displaying the task details and the launch timer function can be moved around within the Daily Schedule container. Set your order of goals however you want!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. **Circle Timer:** When a timer is launched, the entire screen changes to a circle timer displaying the details of the selected task. It counts down from the pre-set time goal, and upon completion, the user is returned to their daily schedule and the finished task is automatically deleted. There is also a pause/resume button in case life happens, which it will.
 
-### `yarn test`
+3. **Compassionate Design:** Software engineering bootcamps are intense. It's easy to stare at a screen for six hours without a break and wonder where they day went. The Singletrack timer only allows users to set goals for a maximum of 60 minutes. That's on purpose! At least once an hour, you should take a break to stretch, look around, get a drink of water, whatever. If you have a goal that will take more than one hour, simply add it as separate tasks -- part one, part two, part three. And take a breather in between! Self-Care is also one of the provided task options, so be sure to build outdoor walks, workouts, meditations, etc. into your daily schedule.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Lessons and Challenges
 
-### `yarn build`
+1. **React in General:** I started this project with two weeks of React programming under my belt, and even that's deceiving. The first week was spent mostly learning "the old ways" before transitioning to hooks and functional components. I learned a ton on the fly while building this app, from the very basics of React such as fetch with useEffect to conditional rendering to importing and implementing third-party components. I absolutely loved learning React and plan to focus heavily on it for my upcoming Flatiron School capstone project, where I'll also bring in more advanced tools such as Redux and Router.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Implementing Outside Components:** The basic functionality behind react-beautiful-dnd was fairly easy to grasp. Taking those components and concepts and adding them to my existing project, however, was a valuable learning exercise. Figuring out which wrappers needed to go on which containers, and where props needed to be passed, took about half a day. I first had the "drag" function working with a broken "drop" function, and then I broke the "drag" when I fixed the "drop." It took a lot of trial-and-error and Google-fu, but by setting small achievable debugging goals I was eventually able to get everything working.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+return (
+        <DragDropContext onDragEnd={handleOnDragEnd}>
+            <Droppable droppableId="events">
+                {(provided) => (
+                    <ul className="event-container" {...provided.droppableProps} ref={provided.innerRef}>
+                        {events.length > 0
+                            ? <h4>Today's Schedule: {totalTime()} Hours</h4>
+                            : <h4>Your schedule is empty.</h4>
+                        }
+                        {displayEvents()}
+                        {provided.placeholder}
+                    </ul>
+                )}
+            </Droppable>
+        </DragDropContext>
+    )
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. **Time Gymnastics:** Working with a clock was difficult. The react-circular-countdown by default shows time in the 15:00 format, but when the seconds dipped below 10 it would display as 15:1. I had to add a condition render to include the extra zero for cases such as 15:01. I also wanted to have a "total time budgeted" function so a user could see how many hours of tasks they'd planned for a given day. This was a particularly fun feature to add, as I got to use a real-world .reduce in JavaScript! I got comfortable with .reduce in Ruby/Rails, but haven't had many use cases for it while learning JavaScript. Once the total time in minutes was accumulated, I divided by 60 and used the .toFixed() function to render the time in hours.
 
-### `yarn eject`
+```
+    const totalTime = () => {
+        let timeArray = events.map(event => event.goal)
+        let reducer = (accumulator, currentValue) => accumulator + currentValue
+        return (timeArray.reduce(reducer) / 60).toFixed(2)
+    }
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Future Goals
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Add user authentication for potential deployment.
+2. Edit the time goal on an existing task on the daily schedule.
+3. If a user exits the timer before it's complete, the remaining time is set as the new time goal and persists on the backend. That way a timer can be exited and reopened without resetting the time back to start.
+4. Progress bars that show the time per day dedicated to each task type.
+5. A gong or other sound that plays when a timer completes, in case a user has it running in the background.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Gratitude
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I couldn't have completed this project without two amazing React components: react-beautiful-dnd and react-circular-countdown-timer. Huge thanks to the developers who create such awesome tools, as well as those who provide online tutorials and walkthroughs about real-world use cases.

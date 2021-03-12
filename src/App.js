@@ -44,11 +44,16 @@ function App() {
     setEvents(events)
   }
 
+  const onTimerEnd = () => {
+    deleteEvent(currentEvent.id)
+    setIsTimerActive(false)
+  }
+
   return (
     <div className="App">
       <Header />
       {isTimerActive
-        ? <Timer setIsTimerActive={setIsTimerActive} currentEvent={currentEvent} />
+        ? <Timer setIsTimerActive={setIsTimerActive} currentEvent={currentEvent} onTimerEnd={onTimerEnd} />
         : <div className="content-container">
             <TaskContainer tasks={tasks} events={events} setEvents={setEvents} />
             <ScheduleContainer 

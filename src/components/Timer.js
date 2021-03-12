@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CountdownCircleTimer } from 'react-countdown-circle-timer'
 import ReactiveButton from 'reactive-button'
 
-export default function Timer({ setIsTimerActive, currentEvent }) {
+export default function Timer({ setIsTimerActive, currentEvent, onTimerEnd }) {
 
     const [pause, setPause] = useState(true)
 
@@ -16,6 +16,8 @@ export default function Timer({ setIsTimerActive, currentEvent }) {
                     colors={[
                         ['#3e2a14']
                     ]}
+                    trailColor="#FFFFFF"
+                    onComplete={() => onTimerEnd()}
                 >
                 {({ remainingTime }) => {
                     const minutes = Math.floor(remainingTime / 60)

@@ -2,7 +2,7 @@
 
 A time management tool for software engineering students.
 
-Users can select from a set of pre-seeded tasks related to the bootcamp experience, such as attending a lesson, working on a lab or project, or exploring new tech. Students can then include clarifying notes and set a time goal, which adds the task to their daily schedule. From the daily schedule, they can launch a countdown timer to keep them on the selected task.
+Users can select from a set of pre-seeded tasks related to the bootcamp experience, such as attending a lesson, working on a lab or project, or exploring new tech. Students can then include clarifying notes and set a time goal, which adds the task to their daily schedule. From the daily schedule, they can launch a countdown timer to keep them focused on the selected task.
 
 Note: This React frontend is meant to be paired with the [singletrack-backend repo](https://github.com/gjeffgolden/singletrack-backend) built in Rails.
 
@@ -39,7 +39,7 @@ return (
     )
 ```
 
-3. **Time Gymnastics:** Working with a clock was difficult. The react-circular-countdown by default shows time in the 15:00 format, but when the seconds dipped below 10 it would display as 15:1. I had to add a condition render to include the extra zero for cases such as 15:01. I also wanted to have a "total time budgeted" function so a user could see how many hours of tasks they'd planned for a given day. This was a particularly fun feature to add, as I got to use a real-world .reduce in JavaScript! I got comfortable with .reduce in Ruby/Rails, but haven't had many use cases for it while learning JavaScript. Once the total time in minutes was accumulated, I divided by 60 and used the .toFixed() function to render the time in hours.
+3. **Time Gymnastics:** Working with a clock was difficult. The react-circular-countdown by default shows time in the 15:00 format, but when the seconds dipped below 10 it would display as 15:1. I had to add a conditional render to include the extra zero for cases such as 15:01. I also wanted to have a "total time budgeted" function so a user could see how many hours of tasks they'd planned for a given day. This was a particularly fun feature to add, as I got to use a real-world .reduce in JavaScript! I got comfortable with .reduce in Ruby/Rails, but haven't had many use cases for it while learning JavaScript. Once the total time in minutes was accumulated, I divided by 60 and used the .toFixed() function to render the time in hours without an insane amount of decimal places.
 
 ```
     const totalTime = () => {
@@ -59,4 +59,4 @@ return (
 
 ## Gratitude
 
-I couldn't have completed this project without two amazing React components: react-beautiful-dnd and react-circular-countdown-timer. Huge thanks to the developers who create such awesome tools, as well as those who provide online tutorials and walkthroughs about real-world use cases.
+I couldn't have completed this project without two amazing React components: [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd) and [react-countdown-circle-timer](https://www.npmjs.com/package/react-countdown-circle-timer). Huge thanks to the developers who create such awesome tools, as well as those who provide online tutorials and walkthroughs about real-world use cases.

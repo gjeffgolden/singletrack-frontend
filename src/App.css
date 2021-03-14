@@ -24,7 +24,7 @@ body {
 .content-container {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .form-container {
@@ -113,11 +113,14 @@ body {
 .task-container {
   display: flex;
   flex-flow: column;
+  min-width: 325px;
   justify-content: space-evenly;
   align-items: center;
   width: 30%;
   height: fit-content;
-  margin: 4em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  margin-right: 0em;
   margin-left: 8em;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 6px;
@@ -152,13 +155,17 @@ body {
   flex-flow: column;
   align-items: top;
   justify-content: center;
-  width: 60%;
+  width: 40%;
   height: fit-content;
-  margin: 4em;
+  margin-top: 4em;
+  margin-bottom: 4em;
+  margin-right: 4em;
+  margin-left: 1em;
 }
 
 .event-container {
   display: flex;
+  min-width: 600px;
   flex-flow: column;
   padding-left: 0;
   margin: 0;
@@ -198,6 +205,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 33%;
+  margin: 0.5em;
 }
 
 .event-card-text > p {
@@ -205,14 +213,21 @@ body {
   padding-top: 0;
   font-family: 'Playfair Display', serif;
   color: white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .event-card-text > h3 {
   margin: 0;
   padding: 0;
+  text-align: center;
   font-family: 'Maven Pro', sans-serif;
   color: white;
   font-size: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .event-card-buttons {

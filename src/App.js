@@ -22,7 +22,7 @@ function App() {
   const [isTimerActive, setIsTimerActive] = useState(false)
   const [isTaskSelected, setIsTaskSelected] = useState(false)
   const [selectedTask, setSelectedTask] = useState('')
-  const [notes, setNotes] = useState('...')
+  const [notes, setNotes] = useState('')
   const [goal, setGoal] = useState(0)
 
   useEffect(() => {

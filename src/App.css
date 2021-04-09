@@ -311,7 +311,21 @@ body {
     flex-flow: column;
     align-items: center;
     justify-content: center;
+    align-self: center;
   }
+
+  .task-container {
+    margin-right: 0;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+  .schedule-container {
+    width: auto;
+    margin-right: 0;
+    margin-left: 0;
+  }
+
 }
 
 

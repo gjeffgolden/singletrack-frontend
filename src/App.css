@@ -325,7 +325,17 @@ body {
     margin-right: 0;
     margin-left: 0;
   }
+}
 
+@media only screen and (max-width: 480px) {
+  .event-container {
+    min-width: 0;
+  }
+
+  .header img {
+    height: 80%;
+    width: auto;
+  }
 }
 
 

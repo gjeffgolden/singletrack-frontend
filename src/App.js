@@ -4,18 +4,9 @@ import Header from './components/Header'
 import TaskContainer from './containers/TaskContainer'
 import ScheduleContainer from './containers/ScheduleContainer'
 import Timer from './components/Timer'
-import SignUpForm from './components/SignUpForm'
 
 function App() {
 
-  const [user, setUser] = useState({
-    username: '',
-    password: '',
-    firstName: '',
-    lastName: ''
-  })
-  const [loggedInUser, setLoggedInUser] = useState({})
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [tasks, setTasks] = useState([])
   const [events, setEvents] = useState([])
   const [currentEvent, setCurrentEvent] = useState([])
@@ -36,27 +27,6 @@ function App() {
       .then(response => response.json())
       .then(results => setEvents(results))
   }, [])
-
-  const signUp = (user) => {
-    setIsLoggedIn(true)
-    fetch('http://localhost:3000/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        user: {
-          username: user.username,
-          password: user.password,
-          first_name: user.firstName,
-          last_name: user.lastName
-        }
-      })
-    })
-    .then(response => response.json())
-    .then(user => setLoggedInUser({ user }))
-  }
 
   const deleteEvent = (id) => {
     let filtered = events.filter(event => event.id !== id)
@@ -101,10 +71,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-      {/* {isLoggedIn
-        ? null
-        : <SignUpForm user={user} setUser={setUser} signUp={signUp} setLoggedInUser={setLoggedInUser} />
-      } */}
       {isTimerActive
         ? <Timer setIsTimerActive={setIsTimerActive} currentEvent={currentEvent} onTimerEnd={onTimerEnd} />
         : <div className="content-container">

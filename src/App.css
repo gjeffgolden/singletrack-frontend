@@ -246,11 +246,12 @@ body {
 .event-card-buttons > button {
   background: #007939;
   font-family: "Maven Pro";
+  border: none;
   height: 1.875rem;
   width: 9.375rem;
   color: white;
   border-radius: 6px;
-  box-shadow: 3px 3px 1px black;
+  box-shadow: 1px 1px 1px black;
   align-self: center;
   margin-top: 0.312rem;
 }
@@ -326,6 +327,16 @@ body {
     width: auto;
     margin-right: 0;
     margin-left: 0;
+  }
+
+  .timer-container {
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .timer-elements {
+    margin: 0;
+    margin-top: 2rem;
   }
 }
 

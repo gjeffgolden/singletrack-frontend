@@ -81,11 +81,12 @@ body {
 
 #submit-form-button {
   background: #007939;
+  border: none;
   height: 3.75rem;
   width: 9.375rem;
   color: white;
   border-radius: 6px;
-  box-shadow: 3px 3px 1px black;
+  box-shadow: 1px 1px 1px black;
   align-self: center;
   margin-top: 0.312rem;
 }
@@ -96,12 +97,13 @@ body {
 
 #close-form-button {
   background: #007939;
+  border: none;
   font-family: "Maven Pro";
   height: 1.875rem;
   width: 6.25rem;
   color: white;
   border-radius: 6px;
-  box-shadow: 3px 3px 1px black;
+  box-shadow: 1px 1px 1px black;
   align-self: center;
   margin-top: 0.312rem;
 }

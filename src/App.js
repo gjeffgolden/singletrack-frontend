@@ -48,7 +48,14 @@ function App() {
         },
         body: JSON.stringify(newEvent)
     })
-    setEvents(events)
+    const optimisticallyRenderedNewEvent = {
+      id: events.length, 
+      task_id: newEvent.task_id, 
+      goal: Number(newEvent.goal), 
+      notes: newEvent.notes, 
+      task: findTask
+    }
+    setEvents([...events, optimisticallyRenderedNewEvent])
 }
 
   const selectEvent = (id) => {
@@ -69,7 +76,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <main className="App">
       <Header />
       {isTimerActive
         ? <Timer setIsTimerActive={setIsTimerActive} currentEvent={currentEvent} onTimerEnd={onTimerEnd} />
@@ -99,7 +106,7 @@ function App() {
             />
           </div>
       }
-    </div>
+    </main>
   );
 }
 

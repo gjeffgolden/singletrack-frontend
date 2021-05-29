@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function CreateEventForm({ closeForm, selectedTask, tasks, events, setEvents, notes, setNotes, goal, setGoal, createEvent }) {
+export default function CreateEventForm({ closeForm, selectedTask, notes, setNotes, goal, setGoal, createEvent }) {
 
-    const handleSubmit = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault()
         createEvent()
+        setNotes('')
+        setGoal(0)
+        closeForm()
     }
 
     return (
@@ -14,9 +18,9 @@ export default function CreateEventForm({ closeForm, selectedTask, tasks, events
                     ? <p style={{color: 'red', alignSelf: 'center'}}>Max Characters Exceeded: 30</p>
                     : null
                 }
-                <label>Notes:</label>
+                <label htmlFor="notes">Notes:</label>
                 <input id="form-notes" type="text" name="notes" value={notes} onChange={(event) => setNotes(event.target.value)} />
-                <label>Time Goal:</label>
+                <label htmlFor="goal">Time Goal:</label>
                 <input id="form-number" type="number" min="1" max="60" name="goal" value={goal} onChange={(event) => setGoal(event.target.value)} />
                 <input id="submit-form-button" type="submit" value="Add to Daily Goals"/>
             </form>

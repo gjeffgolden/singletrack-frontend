@@ -83,8 +83,6 @@ function App() {
         : <div className="content-container">
             <TaskContainer 
               tasks={tasks} 
-              events={events} 
-              setEvents={setEvents} 
               createEvent={createEvent}
               isTaskSelected={isTaskSelected}
               setIsTaskSelected={setIsTaskSelected}
@@ -98,9 +96,7 @@ function App() {
             <ScheduleContainer 
               events={events} 
               deleteEvent={deleteEvent} 
-              currentEvent={currentEvent} 
               selectEvent={selectEvent} 
-              setEvents={setEvents}
               handleOnDragEnd={handleOnDragEnd}
               setIsTimerActive={setIsTimerActive}
             />

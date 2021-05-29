@@ -2,7 +2,7 @@ import React from 'react'
 import EventCard from '../components/EventCard'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
-export default function EventContainer({events, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd}) {
+export default function EventContainer({ events, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd }) {
 
     const displayEvents = () => {
         return events.map((event, index) => {

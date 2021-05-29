@@ -3,10 +3,10 @@ import Logo from '../assets/Singletrack.png'
 
 export default function Header() {
     return (
-        <div className="header-container">
+        <header className="header-container">
             <div className="header">
                 <img src={Logo} alt="Singletrack Logo" />
             </div>
-        </div>
+        </header>
     )
 }

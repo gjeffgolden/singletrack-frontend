@@ -11,7 +11,7 @@ export default function CreateEventForm({ closeForm, selectedTask, notes, setNot
     }
 
     return (
-        <div className="form-container">
+        <section className="form-container">
             <h2>{selectedTask}</h2>
             <form className="create-event-form" onSubmit={handleSubmit}>
                 {notes.length > 30
@@ -25,6 +25,6 @@ export default function CreateEventForm({ closeForm, selectedTask, notes, setNot
                 <input id="submit-form-button" type="submit" value="Add to Daily Goals"/>
             </form>
             <button id="close-form-button" onClick={() => closeForm()}>Go Back</button>
-        </div>
+        </section>
     )
 }

@@ -30,7 +30,7 @@ export default function Timer({ setIsTimerActive, currentEvent, onTimerEnd }) {
                 }}    
                 </CountdownCircleTimer>
             </div>
-            <div className="timer-elements">
+            <section className="timer-elements">
                 <h2>{currentEvent.task.name}</h2>
                 <p>{currentEvent.notes}</p>
                 {pause
@@ -55,7 +55,7 @@ export default function Timer({ setIsTimerActive, currentEvent, onTimerEnd }) {
                     width="200px"
                     style={{marginTop: '10px', fontFamily: 'Maven Pro', backgroundColor: "#007939"}}
                 />
-            </div>
+            </section>
         </div>
     )
 }

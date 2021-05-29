@@ -2,7 +2,7 @@ import React from 'react'
 import TaskCard from '../components/TaskCard'
 import CreateEventForm from '../components/CreateEventForm'
 
-export default function TaskContainer({ tasks, setEvents, events, isTaskSelected, setIsTaskSelected, selectedTask, setSelectedTask, notes, setNotes, goal, setGoal, createEvent }) {
+export default function TaskContainer({ tasks, isTaskSelected, setIsTaskSelected, selectedTask, setSelectedTask, notes, setNotes, goal, setGoal, createEvent }) {
     
     const closeForm = () => {
         setIsTaskSelected(false)
@@ -19,7 +19,7 @@ export default function TaskContainer({ tasks, setEvents, events, isTaskSelected
     }
 
     return (
-        <div className="task-container">
+        <section className="task-container">
             <h2>Choose a Task</h2>
             {isTaskSelected
                 ? <CreateEventForm 
@@ -33,6 +33,6 @@ export default function TaskContainer({ tasks, setEvents, events, isTaskSelected
                 />
                 : displayTasks()
             }
-        </div>
+        </section>
     )
 }

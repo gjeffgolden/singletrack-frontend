@@ -1,7 +1,7 @@
 import React from 'react'
 import EventContainer from './EventContainer'
 
-export default function ScheduleContainer({events, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd}) {
+export default function ScheduleContainer({ events, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd }) {
 
     return (
         <div className="schedule-container">

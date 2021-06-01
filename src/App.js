@@ -1,9 +1,11 @@
 import './App.css';
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, createContext } from 'react'
 import Header from './components/Header'
 import TaskContainer from './containers/TaskContainer'
 import ScheduleContainer from './containers/ScheduleContainer'
 import Timer from './components/Timer'
+
+export const EventsContext = createContext([])
 
 function App() {
 
@@ -93,13 +95,14 @@ function App() {
               goal={goal}
               setGoal={setGoal}
             />
-            <ScheduleContainer 
-              events={events} 
-              deleteEvent={deleteEvent} 
-              selectEvent={selectEvent} 
-              handleOnDragEnd={handleOnDragEnd}
-              setIsTimerActive={setIsTimerActive}
-            />
+            <EventsContext.Provider value={events}>
+              <ScheduleContainer  
+                deleteEvent={deleteEvent} 
+                selectEvent={selectEvent} 
+                handleOnDragEnd={handleOnDragEnd}
+                setIsTimerActive={setIsTimerActive}
+              />
+            </EventsContext.Provider>
           </div>
       }
     </main>

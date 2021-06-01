@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import EventCard from '../components/EventCard'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { EventsContext } from '../App'
 
-export default function EventContainer({ events, deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd }) {
+export default function EventContainer({ deleteEvent, selectEvent, setIsTimerActive, handleOnDragEnd }) {
+
+    const events = useContext(EventsContext)
 
     const displayEvents = () => {
         return events.map((event, index) => {

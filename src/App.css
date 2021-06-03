@@ -35,7 +35,7 @@ body {
   height: fit-content;
 }
 
-.form-container > h2 {
+.form-container h2 {
   font-family: 'Maven Pro', sans-serif;
   color: white;
   font-size: 4rem;
@@ -47,7 +47,7 @@ body {
   flex-flow: column;
 }
 
-.create-event-form > label {
+.create-event-form label {
   font-family: 'Playfair Display', serif;
   margin-bottom: 0.5rem;
   margin-top: 0.5rem;

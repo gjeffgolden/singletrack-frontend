@@ -1,10 +1,15 @@
 import './App.css';
 import React, { useState, useEffect, createContext } from 'react'
-import Header from './components/Header'
-import TaskContainer from './containers/TaskContainer'
-import ScheduleContainer from './containers/ScheduleContainer'
 import Timer from './components/Timer'
 
+//containers
+import TaskContainer from './containers/TaskContainer'
+import ScheduleContainer from './containers/ScheduleContainer'
+
+//components
+import Header from './components/Header'
+
+//context
 export const EventsContext = createContext([])
 
 function App() {
@@ -18,14 +23,16 @@ function App() {
   const [notes, setNotes] = useState('')
   const [goal, setGoal] = useState(0)
 
+  const url = "http://localhost:3000"
+
   useEffect(() => {
-    fetch('http://localhost:3000/tasks')
+    fetch(`${url}/tasks`)
       .then(response => response.json())
       .then(results => setTasks(results))
   }, [])
 
   useEffect(() => {
-    fetch('http://localhost:3000/events')
+    fetch(`${url}/events`)
       .then(response => response.json())
       .then(results => setEvents(results))
   }, [])
@@ -33,7 +40,7 @@ function App() {
   const deleteEvent = (id) => {
     let filtered = events.filter(event => event.id !== id)
     setEvents(filtered)
-    fetch(`http://localhost:3000/events/${id}`, {
+    fetch(`${url}/events/${id}`, {
       method: 'DELETE'
     })
   }
@@ -42,7 +49,7 @@ function App() {
     const findTask = tasks.find(task => task.name === selectedTask)
     const task_id = findTask.id
     const newEvent = {task_id, goal, notes}
-    fetch('http://localhost:3000/events', {
+    fetch(`${url}/events`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
